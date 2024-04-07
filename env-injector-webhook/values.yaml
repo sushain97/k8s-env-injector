@@ -1,6 +1,8 @@
 image: hmctspublic.azurecr.io/hmcts/k8s-env-injector:496359_20231218
 replicas: 2
 removePodAntiAffinity: false
+affinity: {}
+nodeSelector: {}
 environment: {}
   # CLUSTER_NAME: aks-test-01
 dnsOptions: {}

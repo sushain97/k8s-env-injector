@@ -14,6 +14,14 @@ spec:
       labels:
         {{- ( include "chart-env-injector.labels" . ) | indent 8 }}
     spec:
+{{- with .affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+{{- end }}
+      nodeSelector:
+{{- with .nodeSelector }}
+{{ toYaml . | indent 8 }}
+{{- end }}
       containers:
         - name: env-injector
           image: {{ .Values.image }}
